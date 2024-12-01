@@ -1,0 +1,18 @@
+| **Método** | **Descripción** |
+| --- | --- |
+| read() | Lee y retorna todo el contenido del archivo |
+| readlines() | Lee todo el contenido del archivo y retorna una lista con cada línea. |
+| write() | Escribe contenidos en un archivo. |
+| Close() | Cierra el archivo |
+| detach() | Devuelve el flujo sin procesar separado del buffer |
+| fileno() | Devuelve un número que representa el flujo, desde la perspectiva del sistema operativo. |
+| flush() | Vacía el buffer interno |
+| isatty() | Devuelve si el flujo del archivo es interactivo o no |
+| readable() | Devuelve si el flujo del archivo se puede leer o no |
+| readline() | Devuelve una línea del archivo |
+| seek() | Cambia la posición del archivo |
+| seekable() | Devuelve si el archivo nos permite cambiar la posición del archivo |
+| tell() | Devuelve la posición actual del archivo |
+| truncate() | Cambia el tamaño del archivo a un tamaño especificado |
+| writable() | Devuelve si se puede escribir en el archivo o no |
+| writelines() | Escribe una lista de cadenas en el archivo|

@@ -1,0 +1,20 @@
+INICIO 
+- Me despierto
+- Si tengo clases:
+    - Me baño
+    - Desayuno
+    - Me voy para la U
+    - Resivo las clases
+    - Me devuelvo a la casa
+    - Hago trabajos de la U
+    - Me voy a dormir
+- Sino tengo clases:
+    - Desayuno
+    - Pongo a lavar ropa y limpio el piso
+    - Mientras se termina de lavar ropa
+        - Repaso ingles o adelanto trabajos de la U
+    - Hago almuerzo y me lo como
+    - Voy al gimasio
+    - Hago trabajos de la U
+    - Me voy a dormir
+FIN

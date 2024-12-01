@@ -1,0 +1,11 @@
+INICIO
+- Prendo el celular
+- Busco en la pantalla el simbolo de YouTube
+- Abro la aplicacion de YouTube
+- Presiono el icono de la lupita
+- Ingreso un texto
+- Selecciono el video
+- Le doy click en el boton de omitir para quitar el anuncio
+- Reproduzco el video
+
+FIN

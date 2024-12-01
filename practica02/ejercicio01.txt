@@ -1,0 +1,11 @@
+Mostrar “Ingrese el precio del producto”
+pedir precio_producto
+definir precio_producto
+Si (precio_producto < 100): 
+precio1= precio_producto * 0.02
+precio_final= precio_producto - precio1
+mostrar precio_final
+Sino:
+precio2= precio_producto * 0.10
+precio_final= precio_producto - precio 2
+mostrar “precio_final”
