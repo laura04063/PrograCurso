@@ -1,0 +1,9 @@
+definir numero
+mostrar “Ingrese un numero”
+pedir numero
+sumas= 0 
+mientras (numero > 0) entonces: 
+sumas= sumas + numero 
+numero = numero - 1
+fin mientras 
+mostrar “la suma total es”, suma

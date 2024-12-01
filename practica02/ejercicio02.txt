@@ -1,0 +1,9 @@
+definir “tiempo”
+mostrar “Ingrese el tiempo en segundos”
+pedir “tiempo”
+segundos= 10*60
+Si (tiempo < segundos): 
+faltante= segundos - tiempo 
+mostrar faltante
+Sino: 
+mostrar “mayor”
