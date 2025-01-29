@@ -1,23 +1,23 @@
+import student
 estudiantes = []
-
 def agregar_estudiante():
-    estudiante = {}
-    estudiante["nombre"] = input("Ingrese el nombre completo: ")
-    estudiante["seccion"] = input("Ingrese la sección: ")
-    estudiante["notas"] = {}
+    nombre = input("Ingrese el nombre completo: ")
+    seccion = input("Ingrese la sección: ")
+    notas = {}
 
     for materia in ["Español", "Inglés", "Sociales", "Ciencias"]:
         while True:
             try:
                 nota = float(input(f"Ingrese la nota de {materia}: "))
                 if 0 <= nota <= 100:
-                    estudiante["notas"][materia] = nota
+                    notas[materia] = nota
                     break
                 else:
                     print("La nota debe estar entre 0 y 100.")
             except ValueError:
                 print("Entrada inválida, ingrese un número.")
 
+    estudiante = student.Student(nombre, seccion, notas)
     estudiantes.append(estudiante)
     print("Estudiante agregado exitosamente.")
 
@@ -25,10 +25,7 @@ def agregar_estudiante():
 def ver_estudiantes():
     if estudiantes:
         for estudiante in estudiantes:
-            print("\nNombre:", estudiante["nombre"])
-            print("Sección:", estudiante["seccion"])
-            for materia, nota in estudiante["notas"].items():
-                print(f"Nota de {materia}:", nota)
+            print(estudiante)
     else:
         print("No hay estudiantes disponibles.")
 
@@ -37,8 +34,8 @@ def ver_mejores_estudiantes():
     if estudiantes:
         promedios = []
         for estudiante in estudiantes:
-            suma_notas = sum(estudiante["notas"][materia] for materia in estudiante["notas"])
-            promedio = suma_notas / len(estudiante["notas"])
+            suma_notas = sum(estudiante["notas"][materia] for materia in estudiante.notas)
+            promedio = suma_notas / len(estudiante.notas)
             promedios.append((estudiante, promedio))
 
         mejores_estudiantes = []
@@ -64,7 +61,7 @@ def ver_promedio():
     if estudiantes:
         promedios_individuales = []
         for estudiante in estudiantes:
-            suma_notas = sum(estudiante["notas"][materia] for materia in estudiante["notas"])
+            suma_notas = sum(estudiante["notas"][materia] for materia in estudiante.notas)
             promedio = suma_notas / len(estudiante["notas"])
             promedios_individuales.append(promedio)
         suma_promedios = sum(promedios_individuales)
