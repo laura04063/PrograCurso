@@ -1,0 +1,6 @@
+Duplique el proyecto @Sistema de Control de Estudiantes y modifíquelo para usar objetos 
+para guardar la información de los estudiantes (creando una clase de Student).
+
+https://github.com/laura04063/PrograCurso/pull/2
+
+Las modificacion estan en semana 10
