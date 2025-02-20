@@ -1,5 +1,7 @@
 import student
+
 estudiantes = []
+
 def agregar_estudiante():
     nombre = input("Ingrese el nombre completo: ")
     seccion = input("Ingrese la sección: ")
@@ -21,51 +23,31 @@ def agregar_estudiante():
     estudiantes.append(estudiante)
     print("Estudiante agregado exitosamente.")
 
-
 def ver_estudiantes():
     if estudiantes:
         for estudiante in estudiantes:
-            print(estudiante)
+            print("\nNombre:", estudiante.nombre)
+            print("Sección:", estudiante.seccion)
+            for materia, nota in estudiante.notas.items():
+                print(f"Nota de {materia}: {nota}")
     else:
         print("No hay estudiantes disponibles.")
-
 
 def ver_mejores_estudiantes():
     if estudiantes:
-        promedios = []
-        for estudiante in estudiantes:
-            suma_notas = sum(estudiante["notas"][materia] for materia in estudiante.notas)
-            promedio = suma_notas / len(estudiante.notas)
-            promedios.append((estudiante, promedio))
+        promedios = [(estudiante, estudiante.calcular_promedio()) for estudiante in estudiantes]
+        mejores_estudiantes = sorted(promedios, key=lambda x: x[1], reverse=True)[:3]
 
-        mejores_estudiantes = []
-        for _ in range(3):
-            if promedios:
-                max_estudiante = promedios[0]
-                for estudiante, promedio in promedios:
-                    if promedio > max_estudiante[1]:
-                        max_estudiante = (estudiante, promedio)
-                mejores_estudiantes.append(max_estudiante)
-                promedios.remove(max_estudiante)
-
-        print("\nTop 3 estudiantes con mejor promedio:")
-        posicion = 1
+        print("\nTop 3 mejores estudiantes:")
         for estudiante, promedio in mejores_estudiantes:
-            print(f"{posicion}. {estudiante['nombre']} - Promedio: {promedio:.2f}")
-            posicion += 1
+            print(f"{estudiante.nombre} - Promedio: {promedio:.2f}")
     else:
-        print("No hay estudiantes disponibles.")
-
+        print("No hay estudiantes registrados.")
 
 def ver_promedio():
     if estudiantes:
-        promedios_individuales = []
-        for estudiante in estudiantes:
-            suma_notas = sum(estudiante["notas"][materia] for materia in estudiante.notas)
-            promedio = suma_notas / len(estudiante["notas"])
-            promedios_individuales.append(promedio)
-        suma_promedios = sum(promedios_individuales)
-        promedio_general = suma_promedios / len(promedios_individuales)
-        print(f"\nPromedio General de Todos los Estudiantes: {promedio_general:.2f}")
+        promedios_individuales = [estudiante.calcular_promedio() for estudiante in estudiantes]
+        promedio_general = sum(promedios_individuales) / len(promedios_individuales)
+        print(f"\nNota promedio general: {promedio_general:.2f}")
     else:
-        print("No hay estudiantes disponibles.")
+        print("No hay estudiantes registrados.")

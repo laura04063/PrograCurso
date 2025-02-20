@@ -10,12 +10,12 @@ def exportar_datos():
 
             for estudiante in actions.estudiantes:
                 escritor.writerow([
-                    estudiante.nombre, 
-                    estudiante.seccion, 
-                    estudiante.notas["Español"],  
-                    estudiante.notas["Inglés"],
-                    estudiante.notas["Sociales"],
-                    estudiante.notas["Ciencias"]
+                    estudiante.nombre,
+                    estudiante.seccion,
+                    estudiante.notas.get("Español", 0),
+                    estudiante.notas.get("Inglés", 0),
+                    estudiante.notas.get("Sociales", 0),
+                    estudiante.notas.get("Ciencias", 0)
                 ])
 
         print("Datos exportados exitosamente a datos_estudiantes.csv.")
@@ -27,14 +27,8 @@ def importar_datos():
         with open("datos_estudiantes.csv", mode="r") as file:
             lector = csv.DictReader(file)
             for fila in lector:
-                notas = {
-                    "Español": float(fila["Español"]),
-                    "Inglés": float(fila["Inglés"]),
-                    "Sociales": float(fila["Sociales"]),
-                    "Ciencias": float(fila["Ciencias"])
-                }
-                estudiante = student.Student(fila["Nombre"], fila["Sección"], notas)
+                estudiante = student.convertirDesdeDiccionario(fila)  # Aquí usamos la función
                 actions.estudiantes.append(estudiante)
         print("Datos importados exitosamente.")
     except FileNotFoundError:
-        print("No se encontró un archivo de datos exportado previamente.")
+        print("No se encontró el archivo.")
